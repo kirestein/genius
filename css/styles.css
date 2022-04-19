@@ -28,6 +28,7 @@ body {
   margin-top: 2rem;
   width: 43.75rem;
   height: 43.75rem;
+  box-shadow: 0 0 1rem;
 }
 
 .blue {
@@ -52,4 +53,8 @@ body {
   grid-area: yellow;
   background-color: #ebeb06;
   border-bottom-left-radius: 100%;
+}
+
+.selected {
+  opacity: 0.8;
 }
