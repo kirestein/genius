@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "jquery": "^3.6.0"
+  },
+  "name": "genius",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "kirestein <erik.proenca2011@gmail.com>",
+  "license": "MIT"
+}
