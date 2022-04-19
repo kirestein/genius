@@ -15,7 +15,7 @@ let red = $('.red');
 let green = $('.green');
 
 const shuffleOrder = _ => { //ordem aleatória
-  let randomColor = Math.floor(Math.random * 4);
+  let randomColor = Math.floor(Math.random() * 4);
   order[order.length] = randomColor;
   clickedOrder = [];
 
@@ -28,17 +28,17 @@ const shuffleOrder = _ => { //ordem aleatória
 const lightColor = (element, number) => { //acende cor
   number = number * 500;
   setTimeout(() => {
-    element.classList.add('.selected');
+    element.toggleClass('selected');
   }, number - 250);
   setTimeout(() => {
-    element.classList.remove('.selected');
+    element.removeClass('selected');
   });
 }
 
 const checkOrder = () => {
   for (let i in clickedOrder) {
     if (clickedOrder[i] !== order[i]) {
-      lose();
+      gameOver();
       break;
     }
   }
@@ -52,12 +52,12 @@ const checkOrder = () => {
 
 const click = (color) => {
   clickedOrder[clickedOrder.length] = color;
-  createColorElement(color).classList.add('.selected');
+  createColorElement(color).toggleClass('selected');
 
   setTimeout(() => {
-    createColorElement(color).classList.remove('.selected');
-  });
-  checkOrder();
+    createColorElement(color).removeClass('selected');
+    checkOrder();
+  }, 250);
 }
 
 /**função que retorna a cor */
@@ -68,3 +68,36 @@ const createColorElement = (color) => {
   else if (color == 2) return blue;
   else return yellow;
 }
+
+const nextLevel = () => {
+  score++;
+  shuffleOrder();
+}
+
+const gameOver = () => {
+  alert(`Pontuação: ${score}! \n Você perdeu o jogo! \n Clique em ok para um novo jogo`);
+  order = [];
+  clickedOrder = [];
+
+  playGame();
+}
+
+const playGame = () => {
+  alert('Welcome to Genius! \n Starting the game!')
+  score = 0;
+
+  nextLevel();
+
+}
+
+// green.on('click', click(0));
+// red.on('click', click(1));
+// blue.on('click', click(2));
+// yellow.on('click', click(3));
+
+green.click(() => click(0));
+red.click(() => click(1));
+blue.click(() => click(2));
+yellow.click(() => click(3));
+
+playGame()
