@@ -18,5 +18,14 @@ body {
 }
 
 .genius {
-  
+  display: grid;
+  grid-template-areas: 'green red'
+  yellow blue;
+  grid-gap: 1rem;
+  border: 1px solid #fff;
+  background-color: #fff;
+  border-radius: 100%;
+  margin-top: 2rem;
+  width: 43.75rem;
+  height: 43.75rem;
 }
