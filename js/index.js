@@ -14,7 +14,7 @@ let yellow = $('.yellow');
 let red = $('.red');
 let green = $('.green');
 
-const shuffleOrder = _ => {
+const shuffleOrder = _ => { //ordem aleatória
   let randomColor = Math.floor(Math.random * 4);
   order[order.length] = randomColor;
   clickedOrder = [];
@@ -25,7 +25,7 @@ const shuffleOrder = _ => {
   }
 }
 
-const lightColor = (element, number) => {
+const lightColor = (element, number) => { //acende cor
   number = number * 500;
   setTimeout(() => {
     element.classList.add('.selected');
@@ -46,4 +46,25 @@ const checkOrder = () => {
     alert(`Pontuação: ${score}\n Você acertou! Iniciando próximo nível!`);
     nextLevel();
   }
+}
+
+/**função para o clique do usuário */
+
+const click = (color) => {
+  clickedOrder[clickedOrder.length] = color;
+  createColorElement(color).classList.add('.selected');
+
+  setTimeout(() => {
+    createColorElement(color).classList.remove('.selected');
+  });
+  checkOrder();
+}
+
+/**função que retorna a cor */
+
+const createColorElement = (color) => {
+  if (color == 0) return green;
+  else if (color == 1) return red;
+  else if (color == 2) return blue;
+  else return yellow;
 }
