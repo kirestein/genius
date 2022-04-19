@@ -20,12 +20,36 @@ body {
 .genius {
   display: grid;
   grid-template-areas: 'green red'
-  yellow blue;
+  'yellow blue';
   grid-gap: 1rem;
-  border: 1px solid #fff;
+  border: none;
   background-color: #fff;
   border-radius: 100%;
   margin-top: 2rem;
   width: 43.75rem;
   height: 43.75rem;
+}
+
+.blue {
+  grid-area: blue;
+  background-color: #05059e;
+  border-bottom-right-radius: 100%;
+}
+
+.red {
+  grid-area: red;
+  background-color: #ad0303;
+  border-top-right-radius: 100%;
+}
+
+.green {
+  grid-area: green;
+  background-color: #008000;
+  border-top-left-radius: 100%;
+}
+
+.yellow {
+  grid-area: yellow;
+  background-color: #ebeb06;
+  border-bottom-left-radius: 100%;
 }
