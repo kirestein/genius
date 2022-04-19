@@ -26,8 +26,23 @@ const shuffleOrder = _ => {
 }
 
 const lightColor = (element, number) => {
-  let time = time * 500;
+  number = number * 500;
   setTimeout(() => {
     element.classList.add('.selected');
-  }, time - 250);
+  }, number - 250);
+  setTimeout(() => {
+    element.classList.remove('.selected');
+  });
+}
+
+const checkOrder = () => {
+  for (let i in clickedOrder) {
+    if (clickedOrder[i] !== order[i]) {
+      lose();
+      break;
+    }
+  }
+  if (clickedOrder.length == order.length) {
+    
+  }
 }
