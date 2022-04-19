@@ -43,6 +43,7 @@ const checkOrder = () => {
     }
   }
   if (clickedOrder.length == order.length) {
-    
+    alert(`Pontuação: ${score}\n Você acertou! Iniciando próximo nível!`);
+    nextLevel();
   }
 }
